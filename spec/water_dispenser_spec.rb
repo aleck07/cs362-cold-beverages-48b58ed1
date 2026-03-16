@@ -14,4 +14,12 @@ describe 'A water dispenser' do
         expect(reservoir).to receive(:drain).with(100)
         dispenser.dispense(vessel)
     end
+
+    it "fills a vessel using the reservoir" do
+        reservoir = double('reservoir')
+        dispenser = WaterDispenser.new(reservoir)
+        vessel = double('vessel')
+        expect(reservoir).to receive(:fill)
+        dispenser.fill(vessel)
+    end
 end
